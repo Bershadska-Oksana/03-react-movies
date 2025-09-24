@@ -55,3 +55,41 @@
 .button:hover {
   background-color: #004182;
 }
+.searchbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: #ffffff;
+  padding: 20px;
+  border-bottom: 1px solid #e0e0e0;
+}
+.searchForm {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.searchForm input {
+  background-color: #ffffff; /* білий фон */
+  color: #212121; /* чорний текст */
+  width: 300px;
+  padding: 10px 15px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px 0 0 4px;
+  outline: none;
+}
+.searchForm button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #0a66c2; /* синя */
+  color: #ffffff; /* білий текст */
+  border: none;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.searchForm button:hover {
+  background-color: #004182; /* темніший синій */
+}
