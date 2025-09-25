@@ -1,4 +1,3 @@
-// src/components/App/App.tsx
 import React, { useState } from "react";
 import css from "./App.module.css";
 import SearchBar from "../SearchBar/SearchBar";
@@ -25,7 +24,7 @@ const App: React.FC = () => {
     try {
       setLoading(true);
       setError(null);
-      setMovies([]); // очистити попередні результати
+      setMovies([]);
       const results = await fetchMovies(query);
       if (results.length === 0) {
         toast("No movies found for your request.");

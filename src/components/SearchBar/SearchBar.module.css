@@ -70,8 +70,8 @@
 }
 
 .searchForm input {
-  background-color: #ffffff; /* білий фон */
-  color: #212121; /* чорний текст */
+  background-color: #ffffff;
+  color: #212121;
   width: 300px;
   padding: 10px 15px;
   font-size: 16px;
@@ -82,8 +82,8 @@
 .searchForm button {
   padding: 10px 20px;
   font-size: 16px;
-  background-color: #0a66c2; /* синя */
-  color: #ffffff; /* білий текст */
+  background-color: #0a66c2;
+  color: #ffffff;
   border: none;
   border-radius: 0 4px 4px 0;
   cursor: pointer;
@@ -91,5 +91,5 @@
 }
 
 .searchForm button:hover {
-  background-color: #004182; /* темніший синій */
+  background-color: #004182;
 }

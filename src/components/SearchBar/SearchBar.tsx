@@ -14,8 +14,6 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSubmit }) => {
     const formData = new FormData(form);
     const query = (formData.get("query") as string) ?? "";
     onSubmit(query);
-    // Не обов'язково чистити інпут; але можна:
-    // form.reset();
   };
 
   return (
