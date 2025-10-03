@@ -7,7 +7,7 @@ import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import MovieModal from "../MovieModal/MovieModal";
 import { Toaster, toast } from "react-hot-toast";
 import type { Movie } from "../../types/movie";
-import { fetchMovies } from "../../services/movieService";
+import { searchMovies } from "../../services/movieService";
 
 const App: React.FC = () => {
   const [movies, setMovies] = useState<Movie[]>([]);
@@ -25,7 +25,7 @@ const App: React.FC = () => {
       setLoading(true);
       setError(null);
       setMovies([]);
-      const results = await fetchMovies(query);
+      const results = await searchMovies(query);
       if (results.length === 0) {
         toast("No movies found for your request.");
       }

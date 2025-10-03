@@ -1,4 +1,3 @@
-// src/components/MovieModal/MovieModal.tsx
 import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
 import css from "./MovieModal.module.css";

@@ -1,46 +1,41 @@
 // src/components/SearchBar/SearchBar.tsx
-import React from "react";
-import css from "./SearchBar.module.css";
-import type { SearchBarProps } from "./types";
+import { useRef } from "react";
+import toast from "react-hot-toast";
+import styles from "./SearchBar.module.css";
 
 interface SearchBarProps {
   onSubmit: (query: string) => void;
 }
 
 const SearchBar: React.FC<SearchBarProps> = ({ onSubmit }) => {
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const formRef = useRef<HTMLFormElement>(null);
+
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const form = e.currentTarget;
-    const formData = new FormData(form);
-    const query = (formData.get("query") as string) ?? "";
+    const formData = new FormData(e.currentTarget);
+    const query = (formData.get("query") as string)?.trim();
+
+    if (!query) {
+      toast.error("Please enter a search term");
+      return;
+    }
+
     onSubmit(query);
-  };
+    formRef.current?.reset();
+  }
 
   return (
-    <header className={css.header}>
-      <div className={css.container}>
-        <a
-          className={css.link}
-          href="https://www.themoviedb.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by TMDB
-        </a>
-        <form className={css.form} onSubmit={handleSubmit}>
-          <input
-            className={css.input}
-            type="text"
-            name="query"
-            autoComplete="off"
-            placeholder="Search movies..."
-            autoFocus
-          />
-          <button className={css.button} type="submit">
-            Search
-          </button>
-        </form>
-      </div>
+    <header className={styles.searchbar}>
+      <form ref={formRef} className={styles.searchForm} onSubmit={handleSubmit}>
+        <input
+          className={styles.input}
+          type="text"
+          name="query"
+          autoComplete="off"
+          placeholder="Search movies..."
+        />
+        <button type="submit">Search</button>
+      </form>
     </header>
   );
 };
